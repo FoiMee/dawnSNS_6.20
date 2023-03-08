@@ -35,9 +35,10 @@
         {{Form::hidden('follow_id', $id)}}
         {{Form::hidden('follower_id', $user_info['user_id'])}}
         @php
-          echo "<img src='images/".$image."' class='search-userlogo'>";
+          echo "<img src='storage/".$image."' class='search-userlogo'>";
           echo "<p class='search-username'>".$followsname."</p><br>";
         @endphp
+        {{Form::hidden('view_switch', 0)}}
         {{Form::submit('フォローをはずす',['class' => 'search-follow-out'])}}
         {!! Form::close() !!}
         @break
@@ -46,9 +47,10 @@
         {{Form::hidden('follow_id', $id)}}
         {{Form::hidden('follower_id', $user_info['user_id'])}}
         @php
-          echo "<img src='images/".$image."' class='search-userlogo'>";
+          echo "<img src='storage/".$image."' class='search-userlogo'>";
           echo "<p class='search-username'>".$followsname."</p><br>";
         @endphp
+        {{Form::hidden('view_switch', 0)}}
         {{Form::submit('フォローする',['class' => 'search-follow'])}}
         {!! Form::close() !!}
       @endif
@@ -58,9 +60,10 @@
       {{Form::hidden('follow_id', $user->id)}}
       {{Form::hidden('follower_id', $user_info['user_id'])}}
       @php
-        echo "<img src='images/".$image."' class='search-userlogo'>";
+        echo "<img src='storage/".$image."' class='search-userlogo'>";
         echo "<p class='search-username'>".$followsname."</p><br>";
       @endphp
+      {{Form::hidden('view_switch', 0)}}
       {{Form::submit('フォローする',['class' => 'search-follow'])}}
       {!! Form::close() !!}
     @endif

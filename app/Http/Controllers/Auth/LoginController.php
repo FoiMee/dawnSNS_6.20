@@ -59,7 +59,7 @@ class LoginController extends Controller
         if(Auth::attempt($data)){
             $user = Auth::user();
             $name = $user['username'];
-            $image = 'images/'.$user['images'];
+            $image = $user['images'];
             $_SESSION['user_id'] = (string)$user['id'];
             $user_id = $_SESSION['user_id'];
             $follower_count = DB::table('follows')->where('follow','=',$user_id)->count();

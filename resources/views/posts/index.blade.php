@@ -5,7 +5,10 @@ use Illuminate\Support\Facades\DB;
 
 @section('content')
 <div id="content-split">
-  <img src='images/dawn.png' class="user-logo">
+  @php
+  $image = $user_info['image'];
+  echo "<img src='storage/".$image."' class='user-logo'>";
+  @endphp
   {!! Form::open(['url' => '/post']) !!}
   {{Form::hidden('user_id',  $user_info['user_id'], [])}}
   {{Form::textarea('posts', null, ['class' => 'post-area','placeholder' => '何をつぶやこうか...？'])}}
@@ -16,7 +19,7 @@ use Illuminate\Support\Facades\DB;
         {!! Form::open(['url' => '/post-update']) !!}
           <textarea id='target' class="post-edit" name="new_post" value=""></textarea>
           <input id='target2' type="hidden" name="before_post" value="">
-          <input type='image' src='images/edit.png'>
+          <input type='image' src='images/edit.png' class='update-logo'>
         {!! Form::close() !!}
 	   </div>
   </div>
@@ -36,7 +39,7 @@ use Illuminate\Support\Facades\DB;
       $time = $post->created_at;
       $user_id = $post->user_id;
       $post_id = $post->id;
-      echo "<img src='images/".$image."' class='postuser-logo'>";
+      echo "<img src='storage/".$image."' class='postuser-logo'>";
       echo "<p class='postuser-name'>".$postname."</p>";
       echo "<p class='postuser-post'>".$post_text."</p>";
       echo "<p class='postuser-time'>".$time."</p>";

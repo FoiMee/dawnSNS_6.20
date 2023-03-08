@@ -106,7 +106,6 @@ header .img{
     top:20px;
     right: 41px;
     border-radius: 25px;
-    background: #81E5FF 0% 0% no-repeat padding-box;
 }
 .menu-switch{
     position: absolute;
@@ -194,7 +193,6 @@ header .img{
     width: 51px;
     border-radius: 24px;
     display: inline-block;
-    background: #81E5FF 0% 0% no-repeat padding-box;
 }
 #content-split .post-logo {
     position: absolute;
@@ -254,7 +252,7 @@ header .img{
 .modal-body{
 	position: relative;
 	display: inline-block;
-  top:-19px;
+  top:-50px;
   left:-206px;
   width: 784px;
   height: 286px;
@@ -275,6 +273,14 @@ header .img{
   letter-spacing: 0px;
   color: #6C6C6C;
   z-index: 7;
+}
+.update-logo {
+  position: absolute;
+  top: 220px;
+  left: 650px;
+  height: 41px;
+  width: 33px;
+  border-radius: 0px;
 }
 #side-bar{
     position: relative;
@@ -460,6 +466,8 @@ header .img{
   position: absolute;
   width: 240px;
   height:auto;
+  top:114px;
+  left: 294px;
   font: normal normal normal 14px/21px Meiryo;
   letter-spacing: 0px;
   color: #6C6C6C;
@@ -743,7 +751,7 @@ header .img{
   opacity: 1;
 }
 .file-style input{
-  display:none;
+  display: none;
 }
 .file-style span{
   position: absolute;

@@ -70,10 +70,19 @@ class UsersController extends Controller
             'username' => 'required|max:12|min:4',
             'mail' => 'required|max:12|min:4',
             'password' => 'nullable|max:12|min:4|regex:/^[a-zA-Z0-9]+$/',
+            'bio' => 'max:200',
+            'file_image' => 'regex:/^[a-zA-Z0-9]+$/',
           ]);
-          $user_info = UsersController::userInfomation(true);
           $data = $request->input();
+          if(empty($request->file('file_image'))){
 
+          }else{
+            $file_name = $request->file('file_image')->getClientOriginalName();
+            $request->file('file_image')->storeAs('public',$file_name);
+            $data['file_image'] = $file_name;
+          }
+
+          $user_info = UsersController::userInfomation(true);
 
           if(empty($data['password'])){
               $password = $user_info['password'];
@@ -84,7 +93,7 @@ class UsersController extends Controller
               $password = bcrypt($data['password']);
           }
 
-          if(empty($data['file-image'])){
+          if(empty($data['file_image'])){
               $image = $data['before_image'];
           }else{
               $image = $data['file_image'];

@@ -7,7 +7,7 @@
         $image = $profile->images;
         $username = $profile->username;
         $bio = $profile->bio;
-        echo "<img src='images/".$image."' class='profile-logo'>";
+        echo "<img src='storage/".$image."' class='profile-logo'>";
         echo "<p class='name-label'>Name</p>";
         echo "<p class='profile-name'>".$username."</p>";
         echo "<p class='bio-label'>Bio</p>";
@@ -17,11 +17,13 @@
           {!! Form::open(['url' => '/follow-out']) !!}
           {{Form::hidden('follow_id', $id)}}
           {{Form::hidden('follower_id', $user_info['user_id'])}}
+          {{Form::hidden('view_switch', 1)}}
           {{Form::submit('フォローをはずす',['class' => 'profile-follow-out'])}}
         @else
           {!! Form::open(['url' => '/follow']) !!}
           {{Form::hidden('follow_id', $id)}}
           {{Form::hidden('follower_id', $user_info['user_id'])}}
+          {{Form::hidden('view_switch', 1)}}
           {{Form::submit('フォローする',['class' => 'profile-follow'])}}
         @endif
         {!! Form::close() !!}
@@ -37,7 +39,7 @@
         $postname = $post->username;
         $post_text = $post->posts;
         $time = $post->created_at;
-        echo "<img src='images/".$image."' class='postuser-logo'>";
+        echo "<img src='storage/".$image."' class='postuser-logo'>";
         echo "<p class='postuser-name'>".$postname."</p>";
         echo "<p class='postuser-post'>".$post_text."</p>";
         echo "<p class='postuser-time'>".$time."</p>";

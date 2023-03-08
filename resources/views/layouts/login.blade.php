@@ -37,7 +37,10 @@ $imgFile = "../../public/";
                   <div class="menu-switch">
                     <div class="arrow-left"></div><div class="arrow-right"></div>
                   </div>
-                    <img src='images/dawn.png'>
+                  @php
+                  $image = $user_info['image'];
+                    echo "<img src='storage/".$image."'>";
+                  @endphp
                 </div>
                 <div class="pulldown-menu">
                   <ul class="dropdown-menu">

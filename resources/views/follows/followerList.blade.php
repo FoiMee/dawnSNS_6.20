@@ -13,7 +13,7 @@
             {!! Form::open(['url' => '/profile']) !!}
             {{Form::hidden('id',  $follower_id, [])}}
           @php
-              echo "<input type='image' src='images/".$image."' class='list-logo'>";
+              echo "<input type='image' src='storage/".$image."' class='list-logo'>";
           @endphp
           {!! Form::close() !!}
         @endforeach
@@ -30,7 +30,7 @@
       $postname = $post->username;
       $post_text = $post->posts;
       $time = $post->created_at;
-      echo "<img src='images/".$image."' class='postuser-logo'>";
+      echo "<img src='storage/".$image."' class='postuser-logo'>";
       echo "<p class='postuser-name'>".$postname."</p>";
       echo "<p class='postuser-post'>".$post_text."</p>";
       echo "<p class='postuser-time'>".$time."</p>";

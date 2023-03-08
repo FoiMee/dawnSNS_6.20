@@ -25,7 +25,7 @@ class PostsController extends Controller
   protected function userInfomation(){
       $user = Auth::user();
       $name = $user['username'];
-      $image = 'images/'.$user['images'];
+      $image = $user['images'];
       $user_id = (string)$user['id'];
       $follower_count = DB::table('follows')->where('follow','=',$user_id)->count();
       $follow_count = DB::table('follows')->where('follower','=',$user_id)->count();

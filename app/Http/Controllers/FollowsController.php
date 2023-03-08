@@ -26,7 +26,7 @@ class FollowsController extends Controller
     protected function userInfomation(){
         $user = Auth::user();
         $name = $user['username'];
-        $image = 'images/'.$user['images'];
+        $image = $user['images'];
         $user_id = (string)$user['id'];
         $follower_count = DB::table('follows')->where('follow','=',$user_id)->count();
         $follow_count = DB::table('follows')->where('follower','=',$user_id)->count();
@@ -59,7 +59,7 @@ class FollowsController extends Controller
     public function followerList(){
         $user_info = FollowsController::userInfomation();
         $posts = FollowsController::postsDisplay($user_info['user_id']);
-        $follows = DB::select("select DISTINCT follows.follower, users.images FROM follows INNER JOIN users ON follows.follow = users.id WHERE follows.follow = ?;",[$user_info['user_id']]);
+        $follows = DB::select("select DISTINCT follows.follower, users.images FROM follows INNER JOIN users ON follows.follower = users.id WHERE follows.follow = ?;",[$user_info['user_id']]);
         return view("follows.followerList",[
           'user_info' => $user_info,
           'posts' => $posts,
@@ -69,7 +69,7 @@ class FollowsController extends Controller
 
     //フォローする
     public function follow(Request $request){
-        $data=$request->only('follow_id','follower_id');
+        $data=$request->input();
         DB::table('follows')->insert([
             'follow'  => $data['follow_id'],
             'follower'   => $data['follower_id'],
@@ -80,16 +80,33 @@ class FollowsController extends Controller
                               Where id != ?;",[$user_info['user_id']]);
         $check = DB::select("select follow from follows
                               Where follower = ?;",[$user_info['user_id']]);
+
+        if($data['view_switch'] == 1){
+          $id = $data['follow_id'];
+          $posts = DB::select("select * from users inner join posts on users.id = posts.user_id
+                                      where users.id = ? order by posts.created_at desc;",[$id]);
+          $profile = DB::select("select * from users where id = ?;",[$id]);
+          $follow_check = DB::select("select * from follows
+                                      where follow = ? and follower = ?;",[$id,$user_info['user_id']]);
+          return view('users.profile',[
+            'user_info' => $user_info,
+            'posts' => $posts,
+            'user_profile' => $profile,
+            'follow_check' => $follow_check,
+            'id' => $id,
+          ]);
+        }else{
         return view("users.search",[
           'user_info' => $user_info,
           'result' => $result,
           'check' => $check,
         ]);
+        }
     }
 
     //フォロー解除
     public function followOut(Request $request){
-        $data=$request->only('follow_id','follower_id');
+        $data=$request->input();
         DB::table('follows')->where('follow','=',$data['follow_id'])
                             ->where('follower','=',$data['follower_id'])
                             ->delete();
@@ -98,10 +115,27 @@ class FollowsController extends Controller
                               Where id != ?;",[$user_info['user_id']]);
         $check = DB::select("select follow from follows
                               Where follower = ?;",[$user_info['user_id']]);
+        if($data['view_switch'] == 1){
+          $id = $data['follow_id'];
+          $posts = DB::select("select * from users inner join posts on users.id = posts.user_id
+                                      where users.id = ? order by posts.created_at desc;",[$id]);
+          $profile = DB::select("select * from users where id = ?;",[$id]);
+          $follow_check = DB::select("select * from follows
+                                      where follow = ? and follower = ?;",[$id,$user_info['user_id']]);
+          return view('users.profile',[
+            'user_info' => $user_info,
+            'posts' => $posts,
+            'user_profile' => $profile,
+            'follow_check' => $follow_check,
+            'id' => $id,
+          ]);
+        }else{
         return view("users.search",[
           'user_info' => $user_info,
           'result' => $result,
           'check' => $check,
         ]);
+        }
+
     }
 }
