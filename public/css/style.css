@@ -1,0 +1,768 @@
+@charset "utf-8";
+html{
+}
+body{
+    height:780px;
+    width: 1280px;
+}
+/* header */
+header{
+    position: relative;
+    height: 75px;
+    width: 100%;
+    background:#3C4767;
+}
+
+header h1{
+    position: absolute;
+    top: 15px;
+    left: 41px;
+    height: 45px;
+    width: 154px;
+}
+
+header a{
+    height: 45px;
+    width: 154px;
+    display: inline-block;
+}
+
+header .img{
+    height: 100%;
+    width: 100%;
+}
+
+
+#head {
+    position: relative;
+    height: 75px;
+    width: 100%;
+}
+
+#menu-wrapper {
+    position: absolute;
+    height: 75px;
+    width: 300px;
+    top: 0px;
+    left: 980px;
+    color: #FFFFFF;
+}
+
+.pulldown-menu {
+  position: absolute;
+  top:75px;
+  left: 45px;
+  width:255px;
+  height:243px;
+  z-index: 5;
+  display: none;
+}
+.pulldown-menu.active {
+  display: block;
+}
+.dropdown-menu {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.dropdown-menu li a{
+  height:81px;
+  width:100%;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+.dropdown-menu li a:hover{
+  cursor: pointer;
+  background-color: #E2563B;
+  color: white
+}
+.dropdown-menu p {
+  margin-top: 35px;
+}
+#pulldown{
+    position: relative;
+    height: 75px;
+    width: 300px;
+    top:0px;
+    left:0px;
+}
+#pulldown p {
+    position: absolute;
+    height: 21px;
+    top:28px;
+    right: 114px;
+    text-align: left;
+    font: normal normal normal 14px/21px Meiryo;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+#pulldown img{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top:20px;
+    right: 41px;
+    border-radius: 25px;
+    background: #81E5FF 0% 0% no-repeat padding-box;
+}
+.menu-switch{
+    position: absolute;
+    display: inline-block;
+    width: 20.84px;
+    height: 21px;
+    top: 28px;
+    right: 93.82px;
+    cursor: pointer;
+}
+.arrow-left{
+    position: absolute;
+    border: 1px solid #FFFFFF;
+    width: 10px;
+    top: 9.09px;
+    right: 6.43px;
+    transform: rotate(60deg);
+}
+.arrow-right{
+    position: absolute;
+    border: 1px solid #FFFFFF;
+    width: 10px;
+    top:9.09px;
+    right: 0px;
+    transform: rotate(-60deg);
+}
+.arrow-left.active{
+  transform: rotate(120deg);
+}
+.arrow-right.active {
+  transform: rotate(-120deg);
+}
+/* main content */
+#row{
+    height: 100%;
+    width:100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+#container{
+    flex: 0 0 80%;
+}
+#content-split{
+    position: relative;
+    width:100%;
+    margin-bottom: auto;
+    border-bottom: 5px solid #D7D7D7;
+}
+/* 投稿フォーム表示 */
+.form-sizing {
+  height: 103px;
+}
+#content-split .post-area {
+    position: absolute;
+    top: 0;
+    left: 88px;
+    display: inline-block;
+    height:95px;
+    width:670px;
+    text-align: left;
+    font: normal normal normal 18px/27px Meiryo;
+    letter-spacing: 0px;
+    color: #D7D7D7;
+    opacity: 1;
+    border:none;
+}
+#content-split textarea{
+    resize: none;
+}
+#content-split .search-name {
+    position:  absolute;
+    top: 28px;
+    left: 78px;
+    width: 391px;
+    height: 51px;
+    font: normal normal normal 18px/27px Meiryo;
+    border: 1px solid #707070;
+    border-radius: 5px;
+}
+#content-split .user-logo {
+    position: absolute;
+    top: 28px;
+    left: 18px;
+    height: 51px;
+    width: 51px;
+    border-radius: 24px;
+    display: inline-block;
+    background: #81E5FF 0% 0% no-repeat padding-box;
+}
+#content-split .post-logo {
+    position: absolute;
+    top: 55px;
+    left: 764px;
+    height: 36px;
+    width: 41px;
+    border-radius: 0px;
+    display: inline-block;
+}
+#content-split .search-logo {
+    position: absolute;
+    top: 36px;
+    left: 484px;
+    height: 36px;
+    width: 41px;
+    border-radius: 5px;
+    display: inline-block;
+}
+.search-sizing {
+    height: 103px;
+}
+
+.post {
+  position: absolute;
+  top:55px;
+  left:765px;
+  cursor: pointer;
+}
+/*投稿内容更新モーダル*/
+.modal-container{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background: rgba(0,0,0,50%);
+	padding: 40px 20px;
+	overflow: auto;
+	opacity: 0;
+	visibility: hidden;
+	transition: .3s;
+  box-sizing: border-box;
+  z-index: 5;
+}
+.modal-container:before{
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+}
+.modal-container.active{
+	opacity: 1;
+	visibility: visible;
+}
+.modal-body{
+	position: relative;
+	display: inline-block;
+  top:-19px;
+  left:-206px;
+  width: 784px;
+  height: 286px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  z-index: 6;
+}
+/*モーダル内のコンテンツの指定*/
+.post-edit {
+  position: absolute;
+  width: 691px;
+  height: 152px;
+  top: 36px;
+  left: 44px;
+  border: 1px solid black;
+  font: normal normal normal 18px/27px Meiryo;
+  letter-spacing: 0px;
+  color: #6C6C6C;
+  z-index: 7;
+}
+#side-bar{
+    position: relative;
+    height:1000%;
+    flex: 0 0 19%;
+    border-left: 1px solid #6C6C6C;
+}
+#side-bar .name {
+    position: absolute;
+    top:17px;
+    left: 5px;
+    text-align: left;
+    font: normal normal normal 14px/21px Meiryo;
+    letter-spacing: 0px;
+    color: #6C6C6C;
+}
+#side-bar a{
+    position: absolute;
+    display: inline-block;
+    width: 138px;
+    height: 43px;
+}
+
+.btn{
+    position: relative;
+    width: 138px;
+    height: 43px;
+    background: #3C4767 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    opacity: 1;
+    font: normal normal normal 14px/21px Meiryo;
+    color: #FFFFFF;
+    letter-spacing: 0px;
+    text-align: center;
+}
+.btn p{
+    position: absolute;
+}
+
+.follow {
+    top: 84px;
+    left: 115px;
+}
+.follower {
+    top: 180px;
+    left: 115px;
+}
+.follow-wrapper{
+    position: absolute;
+    top: 50px;
+    left: 15px;
+    width:100%;
+}
+.follower-wrapper{
+    position: absolute;
+    top: 146px;
+    left: 15px;
+    width:100%;
+}
+.text{
+    display: inline-block;
+    text-align: left;
+    font: normal normal normal 14px/21px Meiryo;
+    letter-spacing: 0px;
+    color: #6C6C6C;
+}
+.number{
+    position: absolute;
+    left: 200px;
+    display: inline-block;
+    font: normal normal normal 14px/21px Meiryo;
+    letter-spacing: 0px;
+    color: #6C6C6C;
+}
+.search {
+    top: 281px;
+    left: 65px;
+}
+/* 投稿一覧表示 */
+#post-wrapper {
+    position: relative;
+    padding-bottom: 15%;
+    width:100%;
+    border-bottom: 1px solid #D7D7D7;
+}
+.postuser-logo {
+    position: absolute;
+    width:51px;
+    height:51px;
+    top:25px;
+    left:44px;
+    border-radius: 25px;
+}
+.postuser-name {
+    position: absolute;
+    width: auto;
+    height:21px;
+    font: normal normal normal 14px/21px Meiryo;
+    color: #6C6C6C;
+    top:30px;
+    left:123px;
+}
+.postuser-post {
+    position: absolute;
+    font: normal normal normal 18px/27px Meiryo;
+    top:55px;
+    left:123px;
+    width: 754px;
+    height: auto;
+    min-height: 120px;
+    color: #6C6C6C;
+}
+.postuser-time {
+    position: absolute;
+    top:30px;
+    right:25px;
+    font: normal normal normal 14px/27px Meiryo;
+    color: #7D7D7D;
+}
+.edit-logo {
+    position: absolute;
+    bottom: 17px;
+    left:865px;
+    width:33px;
+    height:40px;
+}
+.trash-logo {
+    position: absolute;
+    bottom: 10px;
+    left:920px;
+    width:55px;
+    height:55px;
+    background-image: url('../images/trash.png');
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.trash-logo:hover {
+    background-image: url('../images/trash_h.png');
+    /*display: none;*/
+}
+
+/* FFユーザープロフィール表示 */
+.profile-logo{
+  position: absolute;
+  width:51px;
+  height:51px;
+  top:42px;
+  left:83px;
+  border-radius: 25px;
+}
+.name-label {
+  position: absolute;
+  width: 57px;
+  height:30px;
+  top:53px;
+  left: 167px;
+  font: normal normal normal 20px/30px Meiryo;
+  letter-spacing: 0px;
+  color: #6C6C6C;
+}
+.profile-name {
+  position: absolute;
+  width: auto;
+  height:30px;
+  top:53px;
+  left: 294px;
+  font: normal normal normal 20px/30px Meiryo;
+  letter-spacing: 0px;
+  color: #6C6C6C;
+}
+.bio-label {
+  position: absolute;
+  width: 30px;
+  height:30px;
+  top:114px;
+  left: 167px;
+  font: normal normal normal 20px/30px Meiryo;
+  letter-spacing: 0px;
+  color: #6C6C6C;
+}
+.profile-bio {
+  position: absolute;
+  width: 240px;
+  height:auto;
+  font: normal normal normal 14px/21px Meiryo;
+  letter-spacing: 0px;
+  color: #6C6C6C;
+}
+.profile-follow-out{
+  position: absolute;
+  top: 129px;
+  left: 843px;
+  width:138px;
+  height:43px;
+  font: normal normal normal 14px/21px Meiryo;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  background: #B95656 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  border: none;
+}
+.profile-follow{
+  position: absolute;
+  top: 129px;
+  left: 843px;
+  width:138px;
+  height:43px;
+  font: normal normal normal 14px/21px Meiryo;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  background: #4B71CA 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  border: none;
+}
+.profile-sizing {
+  height: 192px;
+}
+/* FFリスト表示 */
+.follows-sizing {
+  height:237px;
+}
+.list-wrapper {
+  position: absolute;
+  top:73px;
+  left:91px;
+  width: 755px;
+  height: 152px;
+}
+.list-label{
+  position: absolute;
+  top:21px;
+  left:43px;
+  font: normal normal normal 28px/42px Meiryo;
+  letter-spacing: 0px;
+  color: #6C6C6C;
+}
+.list-logo{
+  float: left;
+  width:51px;
+  height:51px;
+  margin-top: 18px;
+  margin-left: 28px;
+  border-radius: 25px;
+}
+
+/* ユーザー検索画面 */
+.search-word {
+  position: absolute;
+  top:40px;
+  left: 635px;
+  font: normal normal normal 21px/24px Meiryo;
+  letter-spacing: 0px;
+  color: #6C6C6C;
+}
+.search-wrapper {
+  position: relative;
+  width: 100%;
+  height:100%;
+  margin-top: 23px;
+}
+.search-form {
+  height:80px;
+
+}
+.search-userlogo{
+  position: absolute;
+  width:51px;
+  height:51px;
+  margin-bottom: 180px;
+  margin-left:85px;
+  border-radius: 25px;
+}
+.search-username{
+  position: absolute;
+  width:auto;
+  height:27px;
+  margin-top:14px;
+  margin-left:151px;
+  font: normal normal normal 18px/27px Meiryo;
+  letter-spacing: 0px;
+  color: #6C6C6C;
+}
+.search-follow{
+  position: absolute;
+  margin-left: 640px;
+  width:138px;
+  height:43px;
+  font: normal normal normal 14px/21px Meiryo;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  background: #4B71CA 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-follow-out{
+  position: absolute;
+  margin-left: 640px;
+  width:138px;
+  height:43px;
+  font: normal normal normal 14px/21px Meiryo;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  background: #B95656 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+/* マイプロフィール　*/
+.myprofile-wrapper{
+  position: relative;
+  width: 100%;
+  height: 10%;
+}
+.myprofile-logo{
+  position: absolute;
+  width:51px;
+  height:51px;
+  top:39px;
+  left:116px;
+  border-radius: 25px;
+}
+.myprofile-name{
+  position: absolute;
+  width:auto;
+  height:30px;
+  top:53px;
+  left:194px;
+  font: normal normal normal 20px/30px Meiryo;
+  letter-spacing: 0px;
+  color: #6C6C6C;
+}
+.myprofile-name input{
+  position: absolute;
+  width: 280px;
+  height: 30px;
+  left:191px;
+  background: #F2F2F2 0% 0% no-repeat padding-box;
+  border-top:none;
+  border-right: none;
+  border-left: none;
+  border-radius: 3px;
+  opacity: 1;
+}
+.myprofile-mail{
+  position: absolute;
+  width:auto;
+  height:30px;
+  top:120px;
+  left:194px;
+  font: normal normal normal 20px/30px Meiryo;
+  letter-spacing: 0px;
+  color: #6C6C6C;
+}
+.myprofile-mail input{
+  position: absolute;
+  width: 280px;
+  height: 30px;
+  left:189px;
+  background: #F2F2F2 0% 0% no-repeat padding-box;
+  border-top:none;
+  border-right: none;
+  border-left: none;
+  border-radius: 3px;
+  opacity: 1;
+}
+.myprofile-old-pass{
+  position: absolute;
+  width:auto;
+  height:30px;
+  top:187px;
+  left:194px;
+  font: normal normal normal 20px/30px Meiryo;
+  letter-spacing: 0px;
+  color: #6C6C6C;
+}
+.myprofile-old-pass input{
+  position: absolute;
+  width: 280px;
+  height: 30px;
+  left:189px;
+  background: #F2F2F2 0% 0% no-repeat padding-box;
+  border-top:none;
+  border-right: none;
+  border-left: none;
+  border-radius: 3px;
+  font: normal normal normal 20px/30px Meiryo;
+  opacity: 1;
+}
+.myprofile-new-pass{
+  position: absolute;
+  width:auto;
+  height:30px;
+  top:254px;
+  left:194px;
+  font: normal normal normal 20px/30px Meiryo;
+  letter-spacing: 0px;
+  color: #6C6C6C;
+}
+.myprofile-new-pass input{
+  position: absolute;
+  width: 280px;
+  height: 30px;
+  left:190px;
+  background: #F2F2F2 0% 0% no-repeat padding-box;
+  border-top:none;
+  border-right: none;
+  border-left: none;
+  border-radius: 3px;
+  font: normal normal normal 20px/30px Meiryo;
+  opacity: 1;
+}
+.myprofile-bio{
+  position: absolute;
+  width:auto;
+  height:30px;
+  top:321px;
+  left:194px;
+  font: normal normal normal 20px/30px Meiryo;
+  letter-spacing: 0px;
+  color: #6C6C6C;
+}
+.myprofile-bio textarea{
+  position: absolute;
+  width: 280px;
+  height: 72px;
+  left:191px;
+  background: #F2F2F2 0% 0% no-repeat padding-box;
+  border-top:none;
+  border-right: none;
+  border-left: none;
+  border-bottom:2px solid;
+  border-radius: 3px;
+  letter-spacing: 0px;
+  font: normal normal normal 14px/21px Meiryo;
+  resize: none;
+  opacity: 1;
+}
+.myprofile-icon{
+  position: absolute;
+  width:auto;
+  height:30px;
+  top:424px;
+  left:194px;
+  font: normal normal normal 20px/30px Meiryo;
+  letter-spacing: 0px;
+  color: #6C6C6C;
+}
+.myprofile-icon .file-style {
+  position: absolute;
+  display: inline-block;
+  width: 326px;
+  height: 111px;
+  left:191px;
+  background: #F2F2F2 0% 0% no-repeat padding-box;
+  border-top:none;
+  border-right: none;
+  border-left: none;
+  border-bottom:2px solid;
+  border-radius: 3px;
+  text-align: center;
+  letter-spacing: 0px;
+  font: normal normal normal 14px/21px Meiryo;
+  opacity: 1;
+}
+.file-style input{
+  display:none;
+}
+.file-style span{
+  position: absolute;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  width:128px;
+  height:32px;
+  top:39px;
+  left:99px;
+}
+.myprofile-submit{
+  position: absolute;
+  width: 138px;
+  height: 43px;
+  top: 578px;
+  left: 531px;
+  background: #7B9979 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}

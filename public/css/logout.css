@@ -1,0 +1,351 @@
+@chasert "utf-8";
+
+html{
+}
+
+body{
+    height: 800px;
+    width: 1280px;
+    /* UI Properties */
+    opacity: 1;
+    color:#FFFEFE;
+    text-align: center;
+    background: transparent linear-gradient(180deg, #3C4767 0%, #3C4767 60%, #DF563B 100%) 0% 0% no-repeat padding-box;
+
+}
+
+
+
+
+
+
+/*ここまでログアウトレイアウトテンプレ*/
+
+/*ここからログインフォーム*/
+.login-wrapper header {
+    display: inline-block;
+    margin-top: 188px;
+    top: 188px;
+    left: 484px;
+    width: 312px;
+    height: 142px;
+
+}
+
+.login-wrapper h1 {
+    display: inline-block;
+    top: 188px;
+    left: 540px;
+    width: 200px;
+    height: 100px;
+    /* UI Properties */
+    background-image: url("../images/main_logo.png") ;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.login-wrapper header p {
+    top: 288px;
+    left: 484px;
+    /* UI Properties */
+    margin-top: 0px;
+    font: normal normal normal 28px/42px Meiryo;
+    letter-spacing: 0px;
+    color: #FFFEFE;
+    opacity: 1;
+}
+
+
+.form-login {
+    top: 482px;
+    left: 516px;
+    width: 245px;
+    height: 140px;
+    opacity: 1;
+    font: normal normal normal 14px/28px Meiryo;
+    margin-left: 17px;
+}
+
+.input {
+    display: block;
+    text-align: left;
+    margin-left: 15px;
+    border-radius:5px;
+}
+.input input {
+    width: 80%;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.input label {
+    margin-left: 20px;
+}
+
+.button {
+    margin-left: 100px;
+    margin-top:10px
+
+}
+
+.button input {
+  background: #4B71CAB3 0% 0% no-repeat padding-box;
+  border-radius: 6px;
+  border-color: #4B71CAB3;
+  opacity: 1;
+  text-align: left;
+  font: normal normal normal 14px/21px Meiryo;
+  letter-spacing: 1.4px;
+  color: #FFFEFE;
+  opacity: 1;
+  padding: 4px 28px 3px 28px;
+
+}
+
+.register {
+  display: block;
+  text-align: center;
+  margin: 30px 67px 21px 69px;
+  width: 144px;
+  height: 18px;
+}
+.register a {
+  font: normal normal normal 12px/18px Meiryo;
+  letter-spacing: 0px;
+  color: #FFFEFE;
+  opacity: 1;
+}
+
+
+#container-login {
+    margin:66px 484px 71px 484px;
+    width: 280px;
+    height: 333px;
+    /* UI Properties */
+    background: #0000002B 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    opacity: 1;
+    text-align: center;
+}
+
+#container-login p{
+      padding-top: 34px;
+      margin-bottom: 31px;
+      width:156;
+      height: 21;
+      font: normal normal normal 14px/21px Meiryo;
+      letter-spacing: 0px;
+      opacity: 1;
+}
+
+/*ここまでがログインフォーム*/
+/*ここからが登録フォーム*/
+
+.form-register {
+    top: 482px;
+    left: 516px;
+    width: 245px;
+    height: 140px;
+    opacity: 1;
+    font: normal normal normal 14px/28px Meiryo;
+    margin-left: 17px;
+}
+
+.register-wrapper header {
+    display: inline-block;
+    margin-top: 103px;
+    top: 103px;
+    left: 534px;
+    width: 200px;
+    height: 100px;
+
+}
+
+.register-wrapper h1 {
+    display: inline-block;
+    top: 188px;
+    left: 540px;
+    width: 200px;
+    height: 100px;
+    /* UI Properties */
+    background-image: url("../images/main_logo.png") ;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.register-wrapper header p {
+    top: 288px;
+    left: 484px;
+    /* UI Properties */
+    margin-top: 0px;
+    font: normal normal normal 28px/42px Meiryo;
+    letter-spacing: 0px;
+    color: #FFFEFE;
+    opacity: 1;
+}
+
+h2 {
+  width: 112px;
+  height: 21px;
+  display: inline-block;
+  margin:22px 83px 57px 85px;
+  font: normal normal normal 14px/21px Meiryo;
+}
+
+
+.login {
+  display: block;
+  text-align: center;
+  margin:230px 85px 20px 87px;
+  width: 108px;
+  height: 18px;
+}
+.login a {
+  font: normal normal normal 12px/18px Meiryo;
+  letter-spacing: 0px;
+  color: #FFFEFE;
+  opacity: 1;
+}
+
+
+#container-register {
+    top:220px;
+    left: 499px;
+    margin:17px 500px 80px 499px;
+    width: 280px;
+    height: 550px;
+    /* UI Properties */
+    background: #0000002B 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    opacity: 1;
+    text-align: center;
+}
+
+#container-register p{
+      padding-top: 34px;
+      margin-bottom: 31px;
+      width:156;
+      height: 21;
+      font: normal normal normal 14px/21px Meiryo;
+      letter-spacing: 0px;
+      opacity: 1;
+}
+
+
+/*ここまでが登録フォーム*/
+/*ここからが完了フォーム*/
+.added-wrapper header {
+    display: inline-block;
+    margin-top: 225px;
+    top: 103px;
+    left: 534px;
+    width: 200px;
+    height: 100px;
+
+}
+
+.added-wrapper h1 {
+    display: inline-block;
+    top: 225px;
+    left: 531px;
+    width: 200px;
+    height: 100px;
+    /* UI Properties */
+    background-image: url("../images/main_logo.png") ;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.added-wrapper header p {
+    top: 288px;
+    left: 484px;
+    /* UI Properties */
+    margin-top: 0px;
+    font: normal normal normal 28px/42px Meiryo;
+    letter-spacing: 0px;
+    color: #FFFEFE;
+    opacity: 1;
+}
+
+.welcome {
+    display: inline-block;
+    width:100%;
+    height: 48px;
+    letter-spacing: 0px;
+    color: #FFFEFE;
+    opacity: 1;
+    line-height: 15px;
+}
+
+.user {
+    text-align: center;
+    width: 127px;
+    height: 27px;
+    margin: 29px auto;
+    margin-bottom: 0px;
+    font: normal normal normal 18px/27px Meiryo;
+    letter-spacing: 0px;
+    color: #FFFEFE;
+    opacity: 1;
+
+}
+
+.comment{
+  width: 152px;
+  height: 21px;
+  margin-left: 64px;
+  font: normal normal normal 12px/18px Meiryo;
+  letter-spacing: 0px;
+  color: #FFFEFE;
+  opacity: 1;
+}
+
+.done {
+  margin-top:27px;
+  margin-left: 22px;
+  text-align: left;
+  width: 238%;
+  height: 46px;
+  font: normal normal normal 12px/21px Meiryo;
+}
+
+.done p {
+  text-align: left;
+  font: normal normal normal 14px/25px Meiryo;
+  letter-spacing: 0px;
+  color: #FFFEFE;
+  opacity: 1;
+}
+
+.button {
+  width: 150px;
+  height: 28px;
+  margin:33px 72px 43px 72px;
+
+}
+
+.button a {
+  background: #4B71CAB3 0% 0% no-repeat padding-box;
+  border-radius: 6px;
+  border-color: #4B71CAB3;
+  opacity: 1;
+  font: normal normal normal 12px/21px Meiryo;
+  letter-spacing: 0px;
+  color: #FFFEFE;
+  opacity: 1;
+  padding: 4px 28px 3px 28px;
+
+}
+
+
+#container-added {
+    top: 344px;
+    left: 500px;
+    margin:19px 500px 201px 499px;
+    width: 280px;
+    height: 255px;
+    background: #0000002B 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    opacity: 1;
+    text-align: center;
+}
